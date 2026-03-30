@@ -96,7 +96,7 @@ export function TrustedBy() {
                   src={client.logo}
                   alt={client.name}
                   fill
-                  className="object-contain p-4 sm:p-6 group-hover:scale-110 transition-transform duration-300"
+                  className="object-contain p-4 sm:p-6 transition-transform duration-300 group-hover:scale-110"
                 />
               </div>
 

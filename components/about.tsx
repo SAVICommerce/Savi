@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react"
 import Image from "next/image"
 import { Users, Settings, Lightbulb } from "lucide-react"
+import whoWeAreImage from "@/public/images/who-we-are.jpeg"
 
 const aboutCards = [
   {
@@ -10,7 +11,7 @@ const aboutCards = [
     title: "Who We Are",
     description:
       "SAVI Global is an eCommerce enablement partner dedicated to furniture and home accessories brands. We work with manufacturers, importers, and private labels that want structured marketplace operations without adding internal overhead.",
-    image: "/images/who-we-are.jpg",
+    image: whoWeAreImage,
     gradient: "from-primary/20 to-primary/5",
   },
   {
