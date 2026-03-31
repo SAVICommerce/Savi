@@ -91,12 +91,12 @@ export function TrustedBy() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
               {/* Logo Container - Centered */}
-              <div className="relative w-full h-full flex items-center justify-center p-4 sm:p-6">
+              <div className="relative w-full h-full flex items-center justify-center p-2 sm:p-3">
                 <Image
                   src={client.logo}
                   alt={client.name}
                   fill
-                  className="object-contain p-4 sm:p-6 transition-transform duration-300 group-hover:scale-110"
+                  className="object-contain transition-transform duration-300 group-hover:scale-103"
                 />
               </div>
 

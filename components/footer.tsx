@@ -18,7 +18,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="relative w-24 h-24">
+              <div className="relative w-54 h-21 md:w-60 md:h-24">
                 <Image
                   src="/images/savi-logo.png"
                   alt="SAVI Global"

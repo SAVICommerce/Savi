@@ -30,12 +30,12 @@ export function Header() {
         <nav className="flex items-center justify-between py-1.5">
           <div className="hidden lg:flex items-center flex-1 min-w-0">
             <Link href="/" className="relative flex items-center group shrink-0">
-              <div className="relative w-14 h-14 md:w-[4.5rem] md:h-[4.5rem] overflow-visible transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-[7.25rem] h-[3.5rem] md:w-[8.5rem] md:h-[4rem] overflow-hidden transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src={logoSrc}
                   alt="SAVI Global"
                   fill
-                  className="object-contain scale-[2.05] transition-all duration-300"
+                  className="object-contain scale-[1.05] transition-all duration-300"
                   priority
                 />
               </div>
@@ -79,12 +79,12 @@ export function Header() {
           </div>
 
           <Link href="/" className="flex lg:hidden items-center gap-3 group">
-            <div className="relative w-10 h-10 overflow-visible transition-transform duration-300 group-hover:scale-105">
+            <div className="relative w-[5.3rem] h-[3rem] overflow-hidden transition-transform duration-300 group-hover:scale-105">
               <Image
                 src={logoSrc}
                 alt="SAVI Global"
                 fill
-                className="object-contain scale-[2.2] transition-all duration-300"
+                className="object-contain scale-[1.2] transition-all duration-300"
                 priority
               />
             </div>

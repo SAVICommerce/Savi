@@ -65,7 +65,7 @@ export function Hero() {
               size="lg"
               className="bg-white hover:bg-slate-100 text-slate-900 rounded-full px-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group"
             >
-              <Link href="#contact">
+              <Link href="contact">
                 Get In Touch
                 <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>

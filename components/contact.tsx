@@ -242,7 +242,7 @@ export function Contact() {
               </div>
 
               {/* Map */}
-              <div className="mt-8 rounded-2xl overflow-hidden border border-border">
+              {/* <div className="mt-8 rounded-2xl overflow-hidden border border-border">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3560.4690970941147!2d75.65358112443775!3d26.825028263855096!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396c4a65775f3d9f%3A0x44548f4ca650803e!2sASHIANA%20UMANG%20PHASE-I%2C%20Jhai%2C%20Rajasthan%20302042!5e0!3m2!1sen!2sin!4v1765534091494!5m2!1sen!2sin"
                   width="100%"
@@ -253,7 +253,7 @@ export function Contact() {
                   referrerPolicy="no-referrer-when-downgrade"
                   title="SAVI Global Location"
                 />
-              </div>
+              </div> */}
 
               <div className="mt-6 p-4 bg-card/50 rounded-2xl border border-border">
                 <p className="text-sm text-muted-foreground">
