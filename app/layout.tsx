@@ -19,11 +19,11 @@ export const metadata: Metadata = {
   keywords: 'ecommerce, furniture, marketplace, wayfair, amazon, home accessories, dropship, inventory management',
   icons: {
     icon: [
-      { url: '/images/savi-logo-old.png', sizes: '32x32', type: 'image/png' },
-      { url: '/images/savi-logo-old.png', sizes: '16x16', type: 'image/png' },
+      { url: '/images/savi-logo.png', sizes: '32x32', type: 'image/png' },
+      { url: '/images/savi-logo.png', sizes: '16x16', type: 'image/png' },
     ],
-    shortcut: '/images/savi-logo-old.png',
-    apple: '/images/savi-logo-old.png',
+    shortcut: '/images/savi-logo.png',
+    apple: '/images/savi-logo.png',
   },
 }
 
