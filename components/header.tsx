@@ -27,15 +27,15 @@ export function Header() {
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200"
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <nav className="flex items-center justify-between py-1.5">
+        <nav className="flex items-center justify-between py-1">
           <div className="hidden lg:flex items-center flex-1 min-w-0">
             <Link href="/" className="relative flex items-center group shrink-0">
-              <div className="relative w-[7.25rem] h-[3.5rem] md:w-[8.5rem] md:h-[4rem] overflow-hidden transition-transform duration-300 group-hover:scale-105">
+              <div className="relative w-[8.5rem] h-[4.5rem] md:w-[10rem] md:h-[5rem] overflow-visible transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src={logoSrc}
                   alt="SAVI Global"
                   fill
-                  className="object-contain scale-[1.05] transition-all duration-300"
+                  className="object-contain scale-[1.15] transition-all duration-300"
                   priority
                 />
               </div>
@@ -79,12 +79,12 @@ export function Header() {
           </div>
 
           <Link href="/" className="flex lg:hidden items-center gap-3 group">
-            <div className="relative w-[5.3rem] h-[3rem] overflow-hidden transition-transform duration-300 group-hover:scale-105">
+            <div className="relative w-[6rem] h-[3.5rem] overflow-visible transition-transform duration-300 group-hover:scale-105">
               <Image
                 src={logoSrc}
                 alt="SAVI Global"
                 fill
-                className="object-contain scale-[1.2] transition-all duration-300"
+                className="object-contain scale-[1.15] transition-all duration-300"
                 priority
               />
             </div>
