@@ -233,9 +233,23 @@ export function Contact() {
                     <MapPin className="w-5 h-5 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm text-muted-foreground mb-1">Address</p>
+                    <p className="text-sm text-muted-foreground mb-1">India Office</p>
                     <p className="text-foreground font-medium">
-                      ASHIANA UMANG PHASE-I, Jhai, Rajasthan 302042
+                      ASHIANA UMANG PHASE-I<br />
+                      Jhai, Rajasthan 302042
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground mb-1">U.S Office</p>
+                    <p className="text-foreground font-medium">
+                      250 Arnold Mill Road<br />
+                      Woodstock, GA 30188
                     </p>
                   </div>
                 </div>

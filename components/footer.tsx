@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Phone, Mail, Globe } from "lucide-react"
+import { Phone, Mail, Globe, MapPin, Instagram } from "lucide-react"
 import { motion } from "framer-motion"
 
 const navLinks = [
@@ -17,7 +17,7 @@ export function Footer() {
   return (
     <footer className="bg-card border-t border-border py-16">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-12">
           {/* Brand */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -71,12 +71,46 @@ export function Footer() {
             </ul>
           </motion.div>
 
-          {/* Contact */}
+          {/* Locations */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h4 className="text-lg font-bold font-heading text-foreground mb-6">
+              Our Offices
+            </h4>
+            <div className="space-y-5">
+              <div>
+                <p className="text-sm font-bold text-foreground font-sans mb-1 flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  India Office
+                </p>
+                <p className="text-sm text-muted-foreground font-sans leading-relaxed pl-6">
+                  ASHIANA UMANG PHASE-I,<br />
+                  Jhai, Rajasthan 302042
+                </p>
+              </div>
+              <div>
+                <p className="text-sm font-bold text-foreground font-sans mb-1 flex items-center gap-2">
+                  <MapPin className="w-4 h-4 text-primary" />
+                  U.S Office
+                </p>
+                <p className="text-sm text-muted-foreground font-sans leading-relaxed pl-6">
+                  250 Arnold Mill Road,<br />
+                  Woodstock, GA 30188
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Contact */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
             <h4 className="text-lg font-bold font-heading text-foreground mb-6">
               Contact
@@ -96,7 +130,10 @@ export function Footer() {
                   href="mailto:info@savicommerce.com"
                   className="flex items-center gap-3 text-muted-foreground font-sans hover:text-primary transition-colors"
                 >
-                  <Mail className="w-4 h-4 text-primary" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-primary shrink-0">
+                    <rect width="20" height="16" x="2" y="4" rx="2" />
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+                  </svg>
                   info@savicommerce.com
                 </a>
               </motion.li>
@@ -105,6 +142,17 @@ export function Footer() {
                   <Globe className="w-4 h-4 text-primary" />
                   savicommerce.com
                 </span>
+              </motion.li>
+              <motion.li whileHover={{ x: 5 }}>
+                <a
+                  href="https://www.instagram.com/savicommerce"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-muted-foreground font-sans hover:text-primary transition-colors"
+                >
+                  <Instagram className="w-4 h-4 text-primary" />
+                  @savicommerce
+                </a>
               </motion.li>
             </ul>
           </motion.div>

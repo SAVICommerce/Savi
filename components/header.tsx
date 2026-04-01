@@ -1,10 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Instagram } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -20,8 +20,24 @@ const navLinks = [
 
 export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [showTopBar, setShowTopBar] = useState(true)
+  const lastScrollY = useRef(0)
   const pathname = usePathname()
   const logoSrc = "/images/savi-logo.png"
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY
+      if (currentScrollY > 20 && currentScrollY > lastScrollY.current) {
+        setShowTopBar(false)
+      } else {
+        setShowTopBar(true)
+      }
+      lastScrollY.current = currentScrollY
+    }
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <motion.header
@@ -30,6 +46,37 @@ export function Header() {
       transition={{ duration: 0.5, ease: "easeOut" }}
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200"
     >
+      {/* Top Contact/Social Bar */}
+      <AnimatePresence>
+        {showTopBar && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="relative w-full bg-slate-950 border-b border-slate-800 py-1.5 px-4 lg:px-8 flex items-center justify-start overflow-hidden origin-top"
+          >
+            {/* Same Gradient as Hero Section */}
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(56,189,248,0.16),transparent_35%),radial-gradient(circle_at_86%_78%,rgba(14,165,233,0.14),transparent_42%),linear-gradient(140deg,#020617_0%,#0b1120_45%,#111827_100%)]" />
+            
+            <div className="relative z-10 flex items-center gap-3">
+              <span className="text-xs sm:text-sm text-slate-300 font-medium font-sans filter drop-shadow-sm">
+                Follow Us:
+              </span>
+              <a
+                href="https://www.instagram.com/savicommerce"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-300 hover:text-cyan-400 transition-colors duration-200 flex items-center"
+                aria-label="Follow us on Instagram"
+              >
+                <Instagram className="w-4 h-4 md:w-[1.125rem] md:h-[1.125rem] filter drop-shadow-sm" />
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between py-1">
           <div className="hidden lg:flex items-center flex-1 min-w-0">
