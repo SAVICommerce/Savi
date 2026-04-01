@@ -134,9 +134,7 @@ export function Marketplaces() {
                 endAngle={-270}
               >
                 <RadialBar
-                  minAngle={15}
                   background={{ fill: 'rgba(255, 255, 255, 0.05)' }}
-                  clockWise
                   dataKey="volume"
                   cornerRadius={10}
                   animationDuration={2500}

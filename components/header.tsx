@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
-import { Menu, X, Instagram } from "lucide-react"
+import { Menu, X, Instagram, Phone, Mail } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -54,13 +54,14 @@ export function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="relative w-full bg-slate-950 border-b border-slate-800 py-1.5 px-4 lg:px-8 flex items-center justify-start overflow-hidden origin-top"
+            className="relative w-full bg-slate-950 border-b border-slate-800 py-1.5 px-4 lg:px-8 flex items-center justify-between overflow-hidden origin-top"
           >
             {/* Same Gradient as Hero Section */}
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_12%_20%,rgba(56,189,248,0.16),transparent_35%),radial-gradient(circle_at_86%_78%,rgba(14,165,233,0.14),transparent_42%),linear-gradient(140deg,#020617_0%,#0b1120_45%,#111827_100%)]" />
             
+            {/* Left Side: Social */}
             <div className="relative z-10 flex items-center gap-3">
-              <span className="text-xs sm:text-sm text-slate-300 font-medium font-sans filter drop-shadow-sm">
+              <span className="hidden sm:inline text-xs sm:text-sm text-slate-300 font-medium font-sans filter drop-shadow-sm">
                 Follow Us:
               </span>
               <a
@@ -71,6 +72,26 @@ export function Header() {
                 aria-label="Follow us on Instagram"
               >
                 <Instagram className="w-4 h-4 md:w-[1.125rem] md:h-[1.125rem] filter drop-shadow-sm" />
+              </a>
+            </div>
+
+            {/* Right Side: Contact */}
+            <div className="relative z-10 flex items-center gap-4 md:gap-6">
+              <a 
+                href="tel:+919953251186"
+                className="group flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors duration-200"
+                aria-label="Call Us"
+              >
+                <Phone className="w-3.5 h-3.5 md:w-4 md:h-4 filter drop-shadow-sm transition-transform group-hover:scale-110" />
+                <span className="text-xs md:text-sm font-medium font-sans hidden sm:inline">+91 99532 51186</span>
+              </a>
+              <a 
+                href="mailto:info@savicommerce.com"
+                className="group flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors duration-200"
+                aria-label="Email Us"
+              >
+                <Mail className="w-3.5 h-3.5 md:w-4 md:h-4 filter drop-shadow-sm transition-transform group-hover:scale-110" />
+                <span className="text-xs md:text-sm font-medium font-sans hidden sm:inline">info@savicommerce.com</span>
               </a>
             </div>
           </motion.div>
