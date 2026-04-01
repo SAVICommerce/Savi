@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { motion } from "framer-motion"
 import {
   Rocket,
   FileText,
@@ -79,116 +79,117 @@ const services = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.3,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+}
+
 export function Services() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in")
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".fade-up")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section id="services" ref={sectionRef} className="py-24 relative">
+    <section id="services" className="py-24 relative">
       <div className="absolute inset-0 bg-gradient-to-b from-accent/30 via-transparent to-accent/30" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div
-            className="fade-up opacity-0 translate-y-8 transition-all duration-700 ease-out"
-            style={{ transitionDelay: "100ms" }}
-          >
-            <span className="text-lg md:text-xl font-bold text-primary uppercase tracking-widest">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div>
+            <span className="text-lg md:text-xl font-bold font-heading text-primary uppercase tracking-widest">
               Services
             </span>
           </div>
-          <h2
-            className="fade-up opacity-0 translate-y-8 transition-all duration-700 ease-out mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-foreground"
-            style={{ transitionDelay: "200ms" }}
-          >
+          <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold font-heading text-foreground">
             End-To-End Marketplace Services
           </h2>
-          <p
-            className="fade-up opacity-0 translate-y-8 transition-all duration-700 ease-out mt-4 text-base text-muted-foreground"
-            style={{ transitionDelay: "300ms" }}
-          >
+          <p className="mt-4 text-base font-sans text-muted-foreground">
             Our work covers the practical areas needed to launch, operate, and
             grow your marketplace business.
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6">
-          {services.map((service, index) => (
-            <div
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-2 gap-6"
+        >
+          {services.map((service) => (
+            <motion.div
               key={service.title}
-              className="fade-up opacity-0 translate-y-8 transition-all duration-700 ease-out"
-              style={{ transitionDelay: `${400 + index * 100}ms` }}
+              variants={itemVariants}
+              whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              className="h-full"
             >
               <div
-                className={`group h-full p-6 rounded-3xl border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl ${
+                className={`group h-full p-6 lg:p-8 rounded-3xl border transition-all duration-500 shadow-md hover:shadow-2xl ${
                   service.featured
                     ? "bg-gradient-to-br from-primary/10 via-card to-card border-primary/20 shadow-xl"
-                    : "bg-card border-border shadow-lg hover:border-primary/20"
+                    : "bg-card border-border hover:border-primary/20"
                 }`}
               >
                 {/* Header */}
-                <div className="flex items-start gap-4 mb-4">
-                  <div
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+                <div className="flex items-start gap-4 mb-6">
+                  <motion.div
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    className={`w-14 h-14 shrink-0 rounded-2xl flex items-center justify-center transition-all duration-300 ${
                       service.featured
                         ? "bg-primary text-primary-foreground shadow-lg"
-                        : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
+                        : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground group-hover:shadow-lg"
                     }`}
                   >
                     <service.icon className="w-7 h-7" />
-                  </div>
+                  </motion.div>
                   <div>
-                    <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-bold font-heading text-foreground group-hover:text-primary transition-colors duration-300">
                       {service.title}
                     </h3>
-                    <p className="text-sm font-medium text-primary mt-1">
+                    <p className="text-sm font-medium font-sans text-primary mt-1">
                       {service.subtitle}
                     </p>
                   </div>
                 </div>
 
                 {/* List */}
-                <ul className="space-y-3">
+                <ul className="space-y-4">
                   {service.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0" />
-                      <span className="text-muted-foreground leading-relaxed">
+                    <motion.li 
+                      key={i} 
+                      initial={{ opacity: 0, x: -10 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: 0.5 + (i * 0.1) }}
+                      className="flex items-start gap-3"
+                    >
+                      <span className="mt-2 w-1.5 h-1.5 rounded-full bg-primary shrink-0 shadow-[0_0_5px_rgba(var(--primary),0.5)]" />
+                      <span className="text-muted-foreground font-sans leading-relaxed text-sm lg:text-base">
                         {item}
                       </span>
-                    </li>
+                    </motion.li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-
-      <style jsx>{`
-        .fade-up.animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   )
 }

@@ -1,7 +1,7 @@
 "use client"
 
-import { useEffect, useRef } from "react"
 import Image from "next/image"
+import { motion } from "framer-motion"
 import { Users, Settings, Lightbulb } from "lucide-react"
 import whoWeAreImage from "@/public/images/who-we-are.jpeg"
 
@@ -32,106 +32,103 @@ const aboutCards = [
   },
 ]
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15,
+      delayChildren: 0.2,
+    },
+  },
+}
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 50 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7, type: "spring" as const, stiffness: 80 } },
+}
+
 export function About() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in")
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
-    const elements = sectionRef.current?.querySelectorAll(".fade-up")
-    elements?.forEach((el) => observer.observe(el))
-
-    return () => observer.disconnect()
-  }, [])
-
   return (
-    <section id="about" ref={sectionRef} className="py-24 relative">
+    <section id="about" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/20 to-transparent" />
 
       <div className="container mx-auto px-4 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <div
-            className="fade-up opacity-0 translate-y-8 transition-all duration-700 ease-out"
-            style={{ transitionDelay: "100ms" }}
-          >
-            <span className="text-lg md:text-xl font-bold text-primary uppercase tracking-widest">
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-3xl mx-auto mb-16"
+        >
+          <div>
+            <span className="text-lg md:text-xl font-bold font-heading text-primary uppercase tracking-widest">
               About SAVI
             </span>
           </div>
-          <h2
-            className="fade-up opacity-0 translate-y-8 transition-all duration-700 ease-out mt-4 text-2xl md:text-3xl lg:text-4xl font-bold text-foreground"
-            style={{ transitionDelay: "200ms" }}
-          >
+          <h2 className="mt-4 text-2xl md:text-3xl lg:text-4xl font-bold font-heading text-foreground">
             Who We Are, What We Do & Why We Started
           </h2>
-          <p
-            className="fade-up opacity-0 translate-y-8 transition-all duration-700 ease-out mt-4 text-base text-muted-foreground"
-            style={{ transitionDelay: "300ms" }}
-          >
+          <p className="mt-4 text-base font-sans text-muted-foreground">
             SAVI Global is focused on helping furniture and home
             accessories brands grow on marketplaces without needing to build
             their own complex eCommerce operations.
           </p>
-        </div>
+        </motion.div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {aboutCards.map((card, index) => (
-            <div
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {aboutCards.map((card) => (
+            <motion.div
               key={card.title}
-              className="fade-up opacity-0 translate-y-8 transition-all duration-700 ease-out"
-              style={{ transitionDelay: `${400 + index * 100}ms` }}
+              variants={itemVariants}
             >
-              <div className="group h-full bg-card rounded-3xl border border-border overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2">
+              <div className="group h-full bg-card rounded-3xl border border-border overflow-hidden shadow-lg transition-transform duration-500 hover:shadow-2xl hover:-translate-y-2">
                 {/* Image */}
                 <div className="relative h-56 overflow-hidden">
                   <Image
                     src={card.image}
                     alt={card.title}
                     fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
                   />
                   <div
                     className={`absolute inset-0 bg-gradient-to-t ${card.gradient}`}
                   />
-                  <div className="absolute bottom-4 left-4">
-                    <div className="w-12 h-12 rounded-2xl bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-lg">
-                      <card.icon className="w-6 h-6 text-primary" />
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    whileInView={{ scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ type: "spring", delay: 0.6 }}
+                    className="absolute bottom-4 left-4"
+                  >
+                    <div className="w-12 h-12 rounded-2xl bg-card/90 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:bg-primary transition-colors duration-300">
+                      <card.icon className="w-6 h-6 text-primary group-hover:text-primary-foreground transition-colors" />
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
 
                 {/* Content */}
                 <div className="p-6 space-y-3">
-                  <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-bold font-heading text-foreground group-hover:text-primary transition-colors duration-300">
                     {card.title}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <p className="text-muted-foreground font-sans leading-relaxed text-sm md:text-base">
                     {card.description}
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
-
-      <style jsx>{`
-        .fade-up.animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   )
 }
