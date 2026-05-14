@@ -231,7 +231,7 @@ export function DemoHub() {
                 <input
                   type="hidden"
                   name="access_key"
-                  value="a7800e25-2a4b-45ea-b261-f1282f34770b"
+                  value="32504af3-1005-4293-acab-c58156d9554d"
                 />
                 <input
                   type="hidden"
