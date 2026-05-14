@@ -130,3 +130,10 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer utilities {
+  .fade-up.animate-in {
+    opacity: 1 !important;
+    transform: translate(0, 0) !important;
+  }
+}

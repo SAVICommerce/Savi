@@ -62,6 +62,19 @@ export function Hero() {
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
+              <Button
+                asChild
+                size="lg"
+                className="bg-transparent text-white border border-white/20 rounded-full px-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group font-sans"
+              >
+                <Link
+                  href="request-demo"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-colors duration-200 hover:bg-white hover:text-slate-900"
+                >
+                  Request a Demo
+                  <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
+                </Link>
+              </Button>
             </motion.div>
 
             <motion.p

@@ -13,6 +13,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
+  { href: "/request-demo", label: "Demo" },
   { href: "/ecommerce-store", label: "eCommerce Store" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
@@ -24,6 +25,7 @@ export function Header() {
   const lastScrollY = useRef(0)
   const pathname = usePathname()
   const logoSrc = "/images/savi-logo.png"
+  const isHome = pathname === "/"
 
   useEffect(() => {
     const handleScroll = () => {
@@ -128,7 +130,11 @@ export function Header() {
                       "text-sm font-medium transition-colors duration-200 relative group font-sans",
                       isActive
                         ? "text-slate-900 font-semibold"
-                        : "text-slate-700 hover:text-slate-900"
+                        : "text-slate-700 hover:text-slate-900",
+                      // Highlight Demo on the Home page
+                      link.href === "/request-demo" && isHome
+                        ? "bg-primary text-primary-foreground px-3 py-1 rounded-full shadow-sm"
+                        : ""
                     )}
                   >
                     {link.label}
