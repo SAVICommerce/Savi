@@ -157,7 +157,7 @@ export function Header() {
             </Button>
             <Button
               asChild
-              className="bg-white border border-slate-300 hover:bg-slate-50 text-slate-900 rounded-full px-5 py-2 shadow-sm transition-all duration-200 font-sans"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 font-sans"
             >
               <Link href="/request-demo">Request a demo</Link>
             </Button>
@@ -230,7 +230,7 @@ export function Header() {
                   </Button>
                   <Button
                     asChild
-                    className="flex-1 bg-white border border-slate-300 hover:bg-slate-50 text-slate-900 rounded-full font-sans"
+                    className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-sans"
                   >
                     <Link href="/request-demo">Request a demo</Link>
                   </Button>

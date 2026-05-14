@@ -37,7 +37,7 @@ export function Hero() {
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.1, ease: "easeOut" }}
             >
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-white leading-tight filter drop-shadow-sm">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading text-cyan-200 leading-tight filter drop-shadow-sm">
                 Launch & Scale Your Brand Across Top Marketplaces
               </h1>
               <p className="mt-6 text-lg text-slate-300 font-sans font-medium">
@@ -55,7 +55,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="bg-white hover:bg-slate-100 text-slate-900 rounded-full px-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group font-sans"
+                className="bg-white hover:bg-slate-100 text-slate-900 rounded-full px-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group font-sans font-semibold text-base md:text-lg"
               >
                 <Link href="contact">
                   Get In Touch
@@ -65,11 +65,11 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                className="bg-transparent text-white border border-white/20 rounded-full px-8 shadow-xl transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 group font-sans"
+                className="bg-white hover:bg-slate-100 text-slate-900 rounded-full px-8 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 group font-sans font-semibold text-base md:text-lg"
               >
                 <Link
                   href="request-demo"
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-colors duration-200 hover:bg-white hover:text-slate-900"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full transition-colors duration-200"
                 >
                   Request a Demo
                   <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
