@@ -13,7 +13,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/request-demo", label: "Demo" },
+  
   { href: "/ecommerce-store", label: "eCommerce Store" },
   { href: "/faq", label: "FAQ" },
   { href: "/contact", label: "Contact" },
@@ -131,10 +131,7 @@ export function Header() {
                       isActive
                         ? "text-slate-900 font-semibold"
                         : "text-slate-700 hover:text-slate-900",
-                      // Highlight Demo on the Home page
-                      link.href === "/request-demo" && isHome
-                        ? "bg-primary text-primary-foreground px-3 py-1 rounded-full shadow-sm"
-                        : ""
+                      ""
                     )}
                   >
                     {link.label}
@@ -157,6 +154,12 @@ export function Header() {
               className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-0.5 font-sans"
             >
               <a href="mailto:info@savicommerce.com">Email Us</a>
+            </Button>
+            <Button
+              asChild
+              className="bg-white border border-slate-300 hover:bg-slate-50 text-slate-900 rounded-full px-5 py-2 shadow-sm transition-all duration-200 font-sans"
+            >
+              <Link href="/request-demo">Request a demo</Link>
             </Button>
           </div>
 
@@ -224,6 +227,12 @@ export function Header() {
                     className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-sans"
                   >
                     <a href="mailto:saviglobalsourcing@gmail.com">Email Us</a>
+                  </Button>
+                  <Button
+                    asChild
+                    className="flex-1 bg-white border border-slate-300 hover:bg-slate-50 text-slate-900 rounded-full font-sans"
+                  >
+                    <Link href="/request-demo">Request a demo</Link>
                   </Button>
                 </div>
               </div>
