@@ -1,6 +1,6 @@
-"use client"
+﻿"use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -8,6 +8,8 @@ import { Send, CheckCircle2 } from "lucide-react"
 
 export function DemoHub() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const [returnUrl, setReturnUrl] = useState("/request-demo?submitted=1")
+  const [submitState, setSubmitState] = useState<"idle" | "submitting" | "success">("idle")
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -26,6 +28,18 @@ export function DemoHub() {
 
     return () => observer.disconnect()
   }, [])
+
+  useEffect(() => {
+    setReturnUrl(`${window.location.origin}/request-demo?submitted=1`)
+    const submitted = new URLSearchParams(window.location.search).get("submitted")
+    if (submitted === "1") {
+      setSubmitState("success")
+    }
+  }, [])
+
+  const handleFormSubmit = () => {
+    setSubmitState("submitting")
+  }
 
   return (
     <section ref={sectionRef} className="py-16 relative">
@@ -224,25 +238,27 @@ export function DemoHub() {
             <div className="sticky top-24 bg-card rounded-3xl border border-border shadow-2xl p-8">
               <h3 className="text-2xl font-bold text-foreground mb-6">Request Demo</h3>
               <form
-                action="https://api.web3forms.com/submit"
                 method="POST"
+                action="https://bigin.zoho.com/crm/WebToContactForm"
+                acceptCharset="UTF-8"
+                encType="multipart/form-data"
+                onSubmit={handleFormSubmit}
                 className="space-y-6"
               >
                 <input
                   type="hidden"
-                  name="access_key"
-                  value="32504af3-1005-4293-acab-c58156d9554d"
+                  name="xnQsjsdp"
+                  defaultValue="8b020178e3ab449cc63203366e275dc19e0513009596d6098ad929110c4d5c20"
                 />
+                <input type="hidden" name="zc_gad" id="zc_gad" defaultValue="" />
                 <input
                   type="hidden"
-                  name="subject"
-                  value="New Demo Request - SAVI Commerce Inventory Hub"
+                  name="xmIwtLD"
+                  defaultValue="b27c37e2468a5e05c5ff8b7b532d8fb7165390faf69575c436efe34a04fcbb5bcb07d8e7cee462d5f6fb0636174185b6"
                 />
-                <input
-                  type="hidden"
-                  name="from_name"
-                  value="SAVI Commerce Demo Request"
-                />
+                <input type="hidden" name="actionType" defaultValue="Q29udGFjdHM=" />
+                <input type="hidden" name="rmsg" id="rmsg" defaultValue="true" />
+                <input type="hidden" name="returnURL" value={returnUrl} readOnly />
 
                 <div className="space-y-2">
                   <label
@@ -254,7 +270,7 @@ export function DemoHub() {
                   <Input
                     type="text"
                     id="demo-name"
-                    name="name"
+                    name="Last Name"
                     placeholder="Enter your name"
                     required
                     className="rounded-xl border-border focus:border-primary focus:ring-primary/20"
@@ -271,7 +287,7 @@ export function DemoHub() {
                   <Input
                     type="email"
                     id="demo-email"
-                    name="email"
+                    name="Email"
                     placeholder="you@company.com"
                     required
                     className="rounded-xl border-border focus:border-primary focus:ring-primary/20"
@@ -288,7 +304,7 @@ export function DemoHub() {
                   <Input
                     type="text"
                     id="demo-company"
-                    name="company"
+                    name="Accounts.Account Name"
                     placeholder="Your company name"
                     required
                     className="rounded-xl border-border focus:border-primary focus:ring-primary/20"
@@ -305,7 +321,7 @@ export function DemoHub() {
                   <Input
                     type="tel"
                     id="demo-phone"
-                    name="phone"
+                    name="Phone"
                     placeholder="+1 (555) 000-0000"
                     required
                     className="rounded-xl border-border focus:border-primary focus:ring-primary/20"
@@ -321,7 +337,7 @@ export function DemoHub() {
                   </label>
                   <Textarea
                     id="demo-message"
-                    name="message"
+                    name="Accounts.Description"
                     placeholder="Tell us about your marketplace needs..."
                     rows={4}
                     className="rounded-xl border-border focus:border-primary focus:ring-primary/20 resize-none"
@@ -331,14 +347,17 @@ export function DemoHub() {
                 <Button
                   type="submit"
                   size="lg"
+                  disabled={submitState === "submitting"}
                   className="w-full rounded-xl bg-primary hover:bg-primary/90 text-white font-medium transition-all duration-300 hover:-translate-y-1 group"
                 >
                   <Send className="mr-2 w-4 h-4" />
-                  Request Demo
+                  {submitState === "submitting" ? "Submitting..." : "Request Demo"}
                 </Button>
 
                 <p className="text-xs text-muted-foreground text-center">
-                  We'll respond to your request within 24 hours
+                  {submitState === "success"
+                    ? "Thanks! Your request has been submitted successfully."
+                    : "We'll respond to your request within 24 hours"}
                 </p>
               </form>
             </div>
