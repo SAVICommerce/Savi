@@ -167,7 +167,7 @@ export function Footer() {
           className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p className="text-sm font-sans text-muted-foreground">
-            © 2025 SAVI Global. All rights reserved.
+            © 2026 SAVI Global. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm font-sans text-muted-foreground">
             <span>

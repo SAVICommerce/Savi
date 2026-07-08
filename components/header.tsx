@@ -227,7 +227,7 @@ export function Header() {
                     asChild
                     className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full font-sans"
                   >
-                    <a href="mailto:saviglobalsourcing@gmail.com">Email Us</a>
+                    <a href="mailto:info@savicommerce.com">Email Us</a>
                   </Button>
                   <Button
                     asChild

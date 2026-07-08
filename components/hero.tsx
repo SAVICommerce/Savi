@@ -34,7 +34,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen pt-28 pb-24 overflow-hidden bg-slate-950 text-slate-100 flex items-center"
+      className="relative min-h-screen pt-36 pb-24 lg:pt-44 lg:pb-32 overflow-hidden bg-slate-950 text-slate-100 flex items-center"
     >
       <style>{`
         @keyframes moveForever {
@@ -69,7 +69,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full mt-12 lg:mt-6">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
           {/* Left Content (Grid span 7) */}
@@ -126,8 +126,7 @@ export function Hero() {
               <Button
                 asChild
                 size="lg"
-                variant="outline"
-                className="border-slate-700 hover:bg-slate-900/50 hover:text-white text-slate-200 rounded-full px-8 transition-all duration-300 hover:-translate-y-1 font-sans font-semibold text-base"
+                className="bg-transparent border border-slate-700 hover:bg-slate-900/50 text-slate-200 hover:text-white rounded-full px-8 transition-all duration-300 hover:-translate-y-1 font-sans font-semibold text-base group"
               >
                 <Link href="request-demo">
                   Request a Demo

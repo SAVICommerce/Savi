@@ -159,7 +159,7 @@ export function Marketplaces() {
             >
               <div className="relative w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-cyan-400 to-sky-600 rounded-3xl rotate-45 flex items-center justify-center shadow-[0_0_40px_rgba(6,182,212,0.45)] border border-cyan-300/30">
                 <div className="rotate-[-45deg] font-heading font-black text-xl md:text-2xl text-white tracking-tighter flex items-center gap-0.5">
-                  savi<span className="text-cyan-200 animate-pulse">.</span>
+                  SAVI<span className="text-cyan-200 animate-pulse">.</span>
                 </div>
               </div>
             </motion.div>
