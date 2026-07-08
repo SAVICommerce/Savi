@@ -34,7 +34,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-screen pt-36 pb-24 lg:pt-44 lg:pb-32 overflow-hidden bg-slate-950 text-slate-100 flex items-center"
+      className="relative pt-[140px] pb-24 sm:pt-[160px] lg:pt-[180px] lg:pb-32 overflow-hidden bg-slate-950 text-slate-100"
     >
       <style>{`
         @keyframes moveForever {
@@ -69,11 +69,11 @@ export function Hero() {
         />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full mt-12 lg:mt-6">
+      <div className="container mx-auto px-4 lg:px-8 relative z-10 w-full">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
           
-          {/* Left Content (Grid span 7) */}
-          <div className="space-y-8 lg:col-span-7 pr-0 lg:pr-6 text-left">
+          {/* Left Content (Grid span 6) */}
+          <div className="space-y-8 lg:col-span-6 pr-0 lg:pr-6 text-left">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -145,15 +145,15 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Dashboard Mockup (Grid span 5) */}
-          <div className="lg:col-span-5 relative w-full flex justify-center">
+          {/* Right Dashboard Mockup (Grid span 6) */}
+          <div className="lg:col-span-6 relative w-full flex justify-center">
             <motion.div
               initial={{ opacity: 0, scale: 0.95, y: 30 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, type: "spring", stiffness: 50 }}
               className="w-full max-w-md md:max-w-lg lg:max-w-none"
             >
-              <div className="relative bg-slate-900/60 rounded-3xl border border-slate-800/80 shadow-2xl overflow-hidden backdrop-blur-xl h-[380px] md:h-[420px] flex flex-col">
+              <div className="relative bg-[#0f1629]/95 rounded-3xl border border-slate-700/80 shadow-[0_0_50px_rgba(6,182,212,0.15)] overflow-hidden backdrop-blur-2xl h-[400px] md:h-[440px] flex flex-col">
                 
                 {/* Browser/Mac App Top Bar */}
                 <div className="flex items-center justify-between px-5 py-3.5 border-b border-slate-800/80 bg-slate-950/40 select-none">
