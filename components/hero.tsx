@@ -18,7 +18,7 @@ import {
   AlertCircle
 } from "lucide-react"
 
-const SLIDER_WORDS = ["Listings", "Inventory", "Orders", "Shipments", "Returns", "Listings"]
+const SLIDER_WORDS = ["Listings", "Inventory", "Orders", "Shipments", "Listings"]
 
 export function Hero() {
   const [step, setStep] = useState(0)
@@ -85,13 +85,13 @@ export function Hero() {
                   <motion.span
                     className="absolute left-0 top-0 flex flex-col"
                     animate={{
-                      y: ["0%", "-16.66%", "-33.33%", "-50%", "-66.66%", "-83.33%"]
+                      y: ["0%", "-20%", "-40%", "-60%", "-80%"]
                     }}
                     transition={{
-                      duration: 12,
+                      duration: 10,
                       repeat: Infinity,
                       ease: [0.76, 0, 0.24, 1],
-                      times: [0, 0.2, 0.4, 0.6, 0.8, 1]
+                      times: [0, 0.25, 0.5, 0.75, 1]
                     }}
                   >
                     {SLIDER_WORDS.map((w, idx) => (
