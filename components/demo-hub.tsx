@@ -89,16 +89,92 @@ export function DemoHub() {
                 </p>
               </div>
 
-              <div className="relative aspect-video w-full overflow-hidden rounded-[1.75rem] border border-border bg-slate-950 shadow-[0_24px_60px_rgba(15,23,42,0.22)]">
-                <video
-                  src="/Videos/SAVI Video.mp4"
-                  controls
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="w-full h-full object-cover"
-                />
+              <div className="relative min-h-[470px] overflow-hidden rounded-[1.75rem] border border-border bg-slate-950 shadow-[0_24px_60px_rgba(15,23,42,0.22)]">
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.18),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(16,185,129,0.12),transparent_28%),linear-gradient(180deg,rgba(15,23,42,0.98),rgba(2,6,23,0.99))]" />
+                <div className="absolute inset-0 opacity-30 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:28px_28px]" />
+
+                <div className="relative z-10 flex h-full flex-col p-5 md:p-6 text-slate-100">
+                  <div className="flex items-center justify-between border-b border-white/10 pb-4">
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-sky-300/90">
+                        SAVICOMMERCE ERP
+                      </p>
+                      <h4 className="mt-1 text-lg md:text-xl font-semibold text-white">
+                        Dashboard preview
+                      </h4>
+                    </div>
+                    <div className="rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-[11px] font-semibold text-emerald-200">
+                      Admin access only
+                    </div>
+                  </div>
+
+                  <div className="mt-5 grid flex-1 gap-4 lg:grid-cols-[1.05fr_0.95fr]">
+                    <div className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+                      <div className="flex items-center justify-between">
+                        <span className="text-sm font-medium text-slate-200">Operational Health</span>
+                        <span className="text-xs text-slate-400">Live</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-3">
+                        {[
+                          ["Revenue", "$128.4K"],
+                          ["Inventory", "98% synced"],
+                          ["Orders", "1,248"],
+                          ["Critical", "12 items"],
+                        ].map(([label, value]) => (
+                          <div key={label} className="rounded-2xl border border-white/10 bg-slate-900/70 p-3">
+                            <p className="text-[11px] uppercase tracking-[0.25em] text-slate-400">{label}</p>
+                            <p className="mt-2 text-lg font-semibold text-white">{value}</p>
+                          </div>
+                        ))}
+                      </div>
+
+                      <div className="rounded-2xl border border-white/10 bg-slate-900/60 p-4">
+                        <p className="text-xs uppercase tracking-[0.3em] text-sky-300">Workflow</p>
+                        <div className="mt-3 space-y-3">
+                          {[
+                            "Login and onboarding",
+                            "Channel integration",
+                            "Inventory import",
+                            "Predictive reordering",
+                          ].map((item, index) => (
+                            <div key={item} className="flex items-center gap-3 text-sm text-slate-200">
+                              <span className="flex h-6 w-6 items-center justify-center rounded-full bg-sky-400/15 text-[11px] font-semibold text-sky-200">
+                                {index + 1}
+                              </span>
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="space-y-4 rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur-sm">
+                      <div className="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
+                        <p className="text-xs uppercase tracking-[0.3em] text-sky-300">Key access notes</p>
+                        <div className="mt-3 space-y-3 text-sm text-slate-300">
+                          {[
+                            "Private infrastructure - admin issued credentials only",
+                            "Company details, logo, and signature setup",
+                            "Shopify, Wayfair, Etsy, and WooCommerce links",
+                            "Dashboard, predictor, procurement, invoicing",
+                          ].map((item) => (
+                            <div key={item} className="flex gap-3">
+                              <CheckCircle2 className="mt-0.5 w-4 h-4 text-sky-300 flex-shrink-0" />
+                              <span>{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-sky-400/15 to-emerald-400/10 p-4">
+                        <p className="text-xs uppercase tracking-[0.3em] text-slate-200">Support</p>
+                        <p className="mt-2 text-sm leading-6 text-slate-200">
+                          Login issues or credential resets should go through the admin.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
               <div className="space-y-4">
