@@ -18,7 +18,7 @@ const satellites = [
   { name: "Walmart", x: 50, y: 200, delay: 1.2, icon: ShoppingBag, color: "#0ea5e9" }, // Walmart Blue
   { name: "WordPress", x: 450, y: 200, delay: 1.8, icon: Globe, color: "#21759b" },     // WordPress Blue
   { name: "eBay", x: 90, y: 330, delay: 0.8, icon: ShoppingCart, color: "#e53e3e" },   // eBay Red/Yellow
-  { name: "Delhivery", x: 410, y: 330, delay: 1.4, icon: Truck, color: "#06b6d4" }    // Cyan
+  { name: "Wayfair", x: 410, y: 330, delay: 1.4, icon: Store, color: "#a855f7" }    // Wayfair Purple
 ]
 
 export function Marketplaces() {

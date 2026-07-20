@@ -80,14 +80,7 @@ export function Header() {
 
             {/* Right Side: Contact */}
             <div className="relative z-10 flex items-center gap-4 md:gap-6">
-              <a 
-                href="tel:+919953251186"
-                className="group flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors duration-200"
-                aria-label="Call Us"
-              >
-                <Phone className="w-3.5 h-3.5 md:w-4 md:h-4 filter drop-shadow-sm transition-transform group-hover:scale-110" />
-                <span className="text-xs md:text-sm font-medium font-sans hidden sm:inline">+91 99532 51186</span>
-              </a>
+
               <a 
                 href="mailto:info@savicommerce.com"
                 className="group flex items-center gap-2 text-slate-300 hover:text-cyan-400 transition-colors duration-200"

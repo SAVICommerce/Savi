@@ -116,15 +116,7 @@ export function Footer() {
               Contact
             </h4>
             <ul className="space-y-4">
-              <motion.li whileHover={{ x: 5 }}>
-                <a
-                  href="tel:+919953251186"
-                  className="flex items-center gap-3 text-muted-foreground font-sans hover:text-primary transition-colors"
-                >
-                  <Phone className="w-4 h-4 text-primary" />
-                  +91 99532 51186
-                </a>
-              </motion.li>
+
               <motion.li whileHover={{ x: 5 }}>
                 <a
                   href="mailto:info@savicommerce.com"

@@ -198,20 +198,7 @@ export function Contact() {
               </p>
 
               <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
-                    <Phone className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-sm text-muted-foreground mb-1">Call Us</p>
-                    <a
-                      href="tel:+919953251186"
-                      className="text-foreground font-medium hover:text-primary transition-colors"
-                    >
-                      +91 99532 51186
-                    </a>
-                  </div>
-                </div>
+
 
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shrink-0">
